@@ -1,0 +1,103 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const categories = [
+	{
+		index: "01 /",
+		title: "Operations & Systems",
+		problem:
+			"Every process lives in someone's head, gets rebuilt from scratch each time, or breaks the moment you step away.",
+		outcome:
+			"Repeatable systems your team can run without you — so growth doesn't mean more chaos, it means more capacity.",
+		deliverables: ["Workflow audits", "Process design", "Tooling & automation setup", "Team rollout & training"],
+	},
+	{
+		index: "02 /",
+		title: "Administrative Support",
+		problem:
+			"Your calendar, inbox, and to-do list are running you instead of the other way around, and the small stuff keeps eating the big stuff.",
+		outcome:
+			"A dependable second set of hands handling the details, so your attention stays on the decisions only you can make.",
+		deliverables: ["Inbox & calendar management", "Client & vendor coordination", "Meeting prep & follow-up", "Ongoing task ownership"],
+	},
+	{
+		index: "03 /",
+		title: "Projects & Implementation",
+		problem:
+			"The initiative got approved, everyone's excited, and then it stalls because no one owns getting it across the finish line.",
+		outcome:
+			"A single point of accountability who plans the rollout, keeps stakeholders aligned, and actually ships it.",
+		deliverables: ["Project planning & scoping", "Cross-functional coordination", "Launch management", "Post-launch review"],
+	},
+	{
+		index: "04 /",
+		title: "Documentation & Organization",
+		problem:
+			"Institutional knowledge walks out the door with every departure, and onboarding a new hire means re-explaining everything from scratch.",
+		outcome:
+			"Clear, living documentation your team actually references — so answers live in a system, not in your inbox.",
+		deliverables: ["SOP development", "Knowledge base setup", "File & folder architecture", "Handbook & onboarding docs"],
+	},
+];
+---
+
+<Layout title="Services — Method &amp; Measure" description="Operational support, systems, and implementation services built around the outcomes you need.">
+	<main class="bg-brand-cream">
+		<!-- PAGE HERO -->
+		<section class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
+			<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">SERVICES</p>
+			<h1 class="mt-3 max-w-3xl font-serif text-5xl md:text-6xl text-brand-black leading-tight">
+				Support built around the problem, not the task list.
+			</h1>
+			<p class="mt-6 max-w-xl font-sans text-sm leading-relaxed text-brand-muted">
+				Every engagement starts with what's actually broken — a bottleneck, a blind spot, a process that
+				only works when you're in the room. From there, we build the system that fixes it.
+			</p>
+		</section>
+
+		<!-- SERVICE CATEGORIES -->
+		<section class="border-t border-brand-border">
+			<div class="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-brand-border px-6 md:grid-cols-2 md:divide-y md:divide-x lg:px-8">
+				{
+					categories.map((category) => (
+						<div class="flex flex-col gap-6 bg-brand-card px-0 py-10 md:px-10 md:py-14">
+							<span class="font-serif text-sm italic text-brand-muted">{category.index}</span>
+
+							<h2 class="font-serif text-3xl text-brand-black">{category.title}</h2>
+
+							<div class="flex flex-col gap-4">
+								<div>
+									<p class="font-sans text-xs tracking-editorial uppercase text-brand-muted">The Problem</p>
+									<p class="mt-2 font-sans text-sm leading-relaxed text-brand-black">{category.problem}</p>
+								</div>
+								<div>
+									<p class="font-sans text-xs tracking-editorial uppercase text-brand-muted">The Outcome</p>
+									<p class="mt-2 font-sans text-sm leading-relaxed text-brand-black">{category.outcome}</p>
+								</div>
+							</div>
+
+							<ul class="flex flex-wrap gap-x-6 gap-y-2 border-t border-brand-border pt-6">
+								{category.deliverables.map((item) => (
+									<li class="font-sans text-xs tracking-editorial uppercase text-brand-muted">{item}</li>
+								))}
+							</ul>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<!-- CTA BAND -->
+		<section class="bg-brand-olive text-brand-cream py-16">
+			<div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 lg:flex-row lg:items-center lg:px-8">
+				<h2 class="font-serif text-3xl md:text-4xl leading-tight">Not sure which category fits?<br />Let's map it out together.</h2>
+				<a
+					href="/contact"
+					class="bg-brand-cream text-brand-black text-xs uppercase tracking-editorial px-6 py-3 whitespace-nowrap transition-colors hover:bg-white"
+				>
+					WORK WITH ME
+				</a>
+			</div>
+		</section>
+	</main>
+</Layout>

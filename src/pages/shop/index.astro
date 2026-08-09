@@ -1,0 +1,196 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const filters = [
+	{ label: "All", value: "all" },
+	{ label: "Workbooks", value: "workbooks" },
+	{ label: "Templates", value: "templates" },
+	{ label: "Systems", value: "systems" },
+];
+
+const products = [
+	{
+		name: "Standard Operating Procedure Template",
+		category: "templates",
+		categoryLabel: "TEMPLATE",
+		description: "A fill-in-the-blank framework for documenting any repeatable process in your business.",
+		price: "$49",
+		slug: "sop-template",
+	},
+	{
+		name: "Project Tracker Template",
+		category: "templates",
+		categoryLabel: "TEMPLATE",
+		description: "A lightweight tracker for keeping scope, owners, and deadlines visible in one place.",
+		price: "$29",
+		slug: "project-tracker-template",
+	},
+	{
+		name: "Employee Handbook Template",
+		category: "templates",
+		categoryLabel: "TEMPLATE",
+		description: "A ready-to-customize handbook covering policies, expectations, and day-one essentials.",
+		price: "$59",
+		slug: "employee-handbook-template",
+	},
+	{
+		name: "Quarterly Planning Workbook",
+		category: "workbooks",
+		categoryLabel: "WORKBOOK",
+		description: "A guided workbook for setting priorities, capacity, and milestones each quarter.",
+		price: "$39",
+		slug: "quarterly-planning-workbook",
+	},
+	{
+		name: "Weekly Ops Review Workbook",
+		category: "workbooks",
+		categoryLabel: "WORKBOOK",
+		description: "A recurring review format to catch bottlenecks before they become fires.",
+		price: "$25",
+		slug: "weekly-ops-review-workbook",
+	},
+	{
+		name: "Client Onboarding System",
+		category: "systems",
+		categoryLabel: "SYSTEM",
+		description: "The full workflow, templates, and checklists for onboarding a new client without dropped details.",
+		price: "$89",
+		slug: "client-onboarding-system",
+	},
+	{
+		name: "Hiring & Onboarding System",
+		category: "systems",
+		categoryLabel: "SYSTEM",
+		description: "A complete process for hiring, offer letters, and 30/60/90-day onboarding.",
+		price: "$99",
+		slug: "hiring-onboarding-system",
+	},
+];
+---
+
+<Layout title="Shop — Method &amp; Measure" description="Digital workbooks, templates, and systems to help you run your business with clarity.">
+	<main class="bg-brand-cream">
+		<!-- PAGE HERO -->
+		<section class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
+			<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">SHOP</p>
+			<h1 class="mt-3 max-w-3xl font-serif text-5xl md:text-6xl text-brand-black leading-tight">
+				A library of tools to run your business with clarity.
+			</h1>
+			<p class="mt-6 max-w-xl font-sans text-sm leading-relaxed text-brand-muted">
+				Done-for-you workbooks, templates, and systems — the same resources used in client engagements,
+				ready to implement on your own.
+			</p>
+		</section>
+
+		<!-- FILTER TABS -->
+		<section class="border-t border-brand-border">
+			<div class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+				<div class="flex flex-wrap gap-3" id="filter-tabs" role="tablist" aria-label="Filter resources by category">
+					{
+						filters.map((filter, i) => (
+							<button
+								type="button"
+								role="tab"
+								aria-selected={i === 0 ? "true" : "false"}
+								data-filter={filter.value}
+								class:list={[
+									"filter-tab font-sans text-xs tracking-editorial uppercase px-4 py-2 border transition-colors",
+									i === 0
+										? "bg-brand-card border-brand-black text-brand-black"
+										: "bg-transparent border-brand-border text-brand-muted hover:border-brand-black hover:text-brand-black",
+								]}
+							>
+								{filter.label}
+							</button>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<!-- PRODUCT GRID -->
+		<section class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
+			<div id="product-grid" class="grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+				{
+					products.map((product) => (
+						<div data-category={product.category} class="product-card group flex flex-col">
+							<div class="overflow-hidden border border-brand-border bg-brand-card">
+								<div class="flex aspect-[4/5] w-full items-center justify-center bg-gradient-to-br from-brand-border/50 to-brand-card transition-transform duration-500 group-hover:scale-105">
+									<span class="font-serif text-sm italic text-brand-muted">Resource preview</span>
+								</div>
+							</div>
+
+							<div class="mt-4 flex flex-1 flex-col">
+								<p class="font-sans text-xs tracking-editorial uppercase text-brand-muted">{product.categoryLabel}</p>
+								<h2 class="mt-2 font-serif text-lg text-brand-black">{product.name}</h2>
+								<p class="mt-2 flex-1 font-sans text-sm leading-relaxed text-brand-muted">{product.description}</p>
+
+								<div class="mt-5 flex items-center justify-between gap-4">
+									<span class="font-sans text-sm text-brand-muted">{product.price}</span>
+									<button
+										type="button"
+										class="lemonsqueezy-button bg-brand-black text-brand-cream text-xs uppercase tracking-editorial px-5 py-2.5 transition-colors hover:bg-gray-800"
+										data-ls-slug={product.slug}
+										data-ls-checkout-url=""
+									>
+										VIEW RESOURCE
+									</button>
+								</div>
+							</div>
+						</div>
+					))
+				}
+			</div>
+
+			<p id="empty-state" class="hidden py-16 text-center font-sans text-sm text-brand-muted">
+				No resources in this category yet — check back soon.
+			</p>
+		</section>
+	</main>
+
+	<script>
+		const tabs = document.querySelectorAll<HTMLButtonElement>(".filter-tab");
+		const cards = document.querySelectorAll<HTMLElement>(".product-card");
+		const emptyState = document.getElementById("empty-state");
+
+		const activeClasses = ["bg-brand-card", "border-brand-black", "text-brand-black"];
+		const inactiveClasses = ["bg-transparent", "border-brand-border", "text-brand-muted"];
+
+		function setFilter(value: string) {
+			let visibleCount = 0;
+
+			cards.forEach((card) => {
+				const matches = value === "all" || card.dataset.category === value;
+				card.classList.toggle("hidden", !matches);
+				if (matches) visibleCount += 1;
+			});
+
+			emptyState?.classList.toggle("hidden", visibleCount !== 0);
+
+			tabs.forEach((tab) => {
+				const isActive = tab.dataset.filter === value;
+				tab.setAttribute("aria-selected", String(isActive));
+				tab.classList.remove(...activeClasses, ...inactiveClasses);
+				tab.classList.add(...(isActive ? activeClasses : inactiveClasses));
+			});
+		}
+
+		tabs.forEach((tab) => {
+			tab.addEventListener("click", () => setFilter(tab.dataset.filter ?? "all"));
+		});
+
+		// TODO: Once Lemon Squeezy products are configured, set each button's
+		// data-ls-checkout-url and wire up the Lemon.Url.Open(...) overlay call
+		// (or swap to <a class="lemonsqueezy-button" href="...">) per their JS SDK.
+		document.querySelectorAll<HTMLButtonElement>(".lemonsqueezy-button").forEach((button) => {
+			button.addEventListener("click", () => {
+				const url = button.dataset.lsCheckoutUrl;
+				if (url) {
+					window.open(url, "_blank");
+				} else {
+					console.warn(`Lemon Squeezy checkout URL not yet configured for "${button.dataset.lsSlug}".`);
+				}
+			});
+		});
+	</script>
+</Layout>

@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+	--color-brand-cream: #f5f1ea;
+	--color-brand-olive: #465246;
+	--color-brand-card: #e6e2da;
+	--color-brand-black: #1c1b19;
+	--color-brand-border: #cfc8be;
+	--color-brand-muted: #6e6a63;
+
+	--font-serif: "Cormorant Garamond", "Times New Roman", serif;
+	--font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+	--tracking-editorial: 0.14em;
+}
+
+body {
+	background-color: var(--color-brand-cream);
+}

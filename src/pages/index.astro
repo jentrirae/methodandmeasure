@@ -1,17 +1,209 @@
 ---
+import Layout from "../layouts/Layout.astro";
 
+const features = [
+	{
+		index: "01 /",
+		title: "OPERATIONAL SUPPORT",
+		copy: "Reliable, detail-oriented support so you can stay focused on what matters most.",
+		link: "LEARN MORE →",
+	},
+	{
+		index: "02 /",
+		title: "OPERATIONS CONSULTING",
+		copy: "Systems, workflows, and processes designed to streamline your business and drive results.",
+		link: "LEARN MORE →",
+	},
+	{
+		index: "03 /",
+		title: "DIGITAL TEMPLATES",
+		copy: "Done-for-you templates, SOPs, and resources to save time and run with clarity.",
+		link: "BROWSE TEMPLATES →",
+	},
+];
+
+const templates = [
+	{
+		name: "Standard Operating Procedure Template",
+		price: "$49",
+	},
+	{
+		name: "Project Tracker Template",
+		price: "$29",
+	},
+	{
+		name: "Employee Handbook Template",
+		price: "$59",
+	},
+];
+
+const testimonials = [
+	{
+		quote:
+			"Working together completely changed how our back-of-house runs. We finally have systems the whole team actually follows.",
+		name: "Marguerite Landry",
+		tag: "RESTAURANT OWNER",
+	},
+	{
+		quote:
+			"Every process was documented, tested, and handed off without a single dropped ball. It felt like adding a full ops department overnight.",
+		name: "Theo Okafor",
+		tag: "HOSPITALITY GROUP",
+	},
+	{
+		quote:
+			"I went from firefighting every day to actually planning ahead. The templates alone paid for themselves in the first week.",
+		name: "Priya Sundaram",
+		tag: "SMALL BUSINESS OWNER",
+	},
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Method &amp; Measure — Systems That Simplify. Strategy That Scales.">
+	<main>
+		<!-- HERO -->
+		<section class="mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-16 lg:py-24">
+				<div class="lg:col-span-7">
+					<h1
+						class="font-serif text-6xl md:text-7xl font-normal text-brand-black leading-none uppercase tracking-tight"
+					>
+						Method &amp; Measure
+					</h1>
+					<p class="font-sans text-sm tracking-widest uppercase text-brand-black mt-6 font-medium">
+						Systems that simplify. Strategy that scales.
+					</p>
+
+					<div class="mt-10 flex flex-wrap items-center gap-8">
+						<a
+							href="/contact"
+							class="bg-brand-black text-brand-cream text-xs uppercase tracking-editorial px-6 py-3 transition-colors hover:bg-gray-800"
+						>
+							WORK WITH ME
+						</a>
+						<a
+							href="/shop"
+							class="font-sans text-xs uppercase tracking-editorial border-b border-brand-black pb-0.5 text-brand-black"
+						>
+							VIEW TEMPLATES
+						</a>
+					</div>
+				</div>
+
+				<div class="lg:col-span-5">
+					<div class="border border-brand-border bg-brand-card p-3">
+						<div
+							class="flex aspect-[4/5] w-full items-center justify-center bg-gradient-to-br from-brand-border/60 to-brand-card"
+						>
+							<span class="font-serif text-sm italic text-brand-muted">Editorial mockup</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- THREE-COLUMN FEATURE ROW -->
+		<section class="bg-brand-olive text-brand-cream py-16 border-y border-brand-olive">
+			<div
+				class="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-white/15 px-6 md:grid-cols-3 md:divide-y-0 md:divide-x lg:px-8"
+			>
+				{
+					features.map((feature) => (
+						<div class="flex flex-col gap-4 px-0 py-8 md:px-10 md:py-0 first:pt-0 md:first:pl-0">
+							<span class="font-serif text-sm text-brand-muted italic">{feature.index}</span>
+							<h3 class="font-sans text-sm tracking-editorial uppercase text-brand-cream font-medium">
+								{feature.title}
+							</h3>
+							<p class="font-sans text-sm leading-relaxed text-brand-cream/80">{feature.copy}</p>
+							<a
+								href="/services"
+								class="mt-2 font-sans text-xs tracking-editorial uppercase text-brand-cream transition-colors hover:text-brand-muted"
+							>
+								{feature.link}
+							</a>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<!-- FEATURED TEMPLATES -->
+		<section class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+			<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">FEATURED TEMPLATES</p>
+			<h2 class="mt-3 font-serif text-4xl md:text-5xl text-brand-black">Tools to simplify your business.</h2>
+
+			<div class="mt-12 grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-3">
+				{
+					templates.map((template) => (
+						<a href="/shop" class="group block">
+							<div class="overflow-hidden border border-brand-border bg-brand-card">
+								<div class="flex aspect-[4/5] w-full items-center justify-center bg-gradient-to-br from-brand-border/50 to-brand-card transition-transform duration-500 group-hover:scale-105">
+									<span class="font-serif text-sm italic text-brand-muted">Template preview</span>
+								</div>
+							</div>
+							<div class="mt-4 flex items-start justify-between gap-4">
+								<h3 class="font-serif text-lg text-brand-black">{template.name}</h3>
+								<span class="font-sans text-sm text-brand-black">{template.price}</span>
+							</div>
+						</a>
+					))
+				}
+			</div>
+		</section>
+
+		<!-- ABOUT / METHODOLOGY -->
+		<section class="bg-brand-cream py-20">
+			<div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
+				<div class="border border-brand-border bg-brand-card">
+					<div
+						class="flex aspect-[4/5] w-full items-center justify-center bg-gradient-to-br from-brand-border/50 to-brand-card"
+					>
+						<span class="font-serif text-sm italic text-brand-muted">Workspace photo</span>
+					</div>
+				</div>
+
+				<div>
+					<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">ABOUT</p>
+					<h2 class="mt-3 font-serif text-4xl md:text-5xl text-brand-black leading-tight">
+						Operations background. Strategic mindset.
+					</h2>
+					<p class="mt-6 font-sans text-sm leading-relaxed text-brand-muted">
+						I spent years running the back-of-house for growing hospitality brands before I started
+						helping other founders do the same. My approach pairs hands-on operational rigor with a
+						strategist's eye for what actually moves the business forward — so the systems we build
+						aren't just tidy, they're built to scale with you.
+					</p>
+					<a
+						href="/about"
+						class="mt-6 inline-block font-sans text-xs uppercase tracking-editorial border-b border-brand-black pb-0.5 text-brand-black"
+					>
+						MORE ABOUT ME →
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- TESTIMONIALS -->
+		<section class="bg-brand-card py-16 border-t border-brand-border">
+			<div class="mx-auto max-w-7xl px-6 lg:px-8">
+				<div class="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
+					{
+						testimonials.map((testimonial) => (
+							<div class="flex flex-col gap-6">
+								<p class="font-serif text-xl italic leading-relaxed text-brand-black">
+									&ldquo;{testimonial.quote}&rdquo;
+								</p>
+								<div>
+									<p class="font-sans text-sm font-medium text-brand-black">{testimonial.name}</p>
+									<p class="mt-1 font-sans text-xs tracking-editorial uppercase text-brand-muted">
+										{testimonial.tag}
+									</p>
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
