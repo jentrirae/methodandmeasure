@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 280" width="100%" height="auto">
+  <style>
+    .stacked-text { font-family: 'Cormorant Garamond', 'Playfair Display', 'Didot', serif; font-size: 44px; font-weight: 500; letter-spacing: 0.38em; fill: #1C1B19; }
+    .stacked-amp { font-family: 'Cormorant Garamond', 'Baskerville', serif; font-size: 38px; font-style: italic; font-weight: 400; fill: #1C1B19; }
+  </style>
+  <!-- Top Word -->
+  <text x="50%" y="75" text-anchor="middle" class="stacked-text">METHOD</text>
+
+  <!-- Middle Tier with Hairlines -->
+  <line x1="80" y1="135" x2="200" y2="135" stroke="#CFC8BE" stroke-width="1" />
+  <text x="50%" y="147" text-anchor="middle" class="stacked-amp">&amp;</text>
+  <line x1="300" y1="135" x2="420" y2="135" stroke="#CFC8BE" stroke-width="1" />
+
+  <!-- Bottom Word -->
+  <text x="50%" y="225" text-anchor="middle" class="stacked-text">MEASURE</text>
+</svg>

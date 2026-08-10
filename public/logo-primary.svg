@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 120" width="100%" height="auto">
+  <style>
+    .brand-text { font-family: 'Cormorant Garamond', 'Playfair Display', 'Didot', serif; font-size: 42px; font-weight: 500; letter-spacing: 0.38em; fill: #1C1B19; }
+    .ampersand { font-family: 'Cormorant Garamond', 'Baskerville', serif; font-size: 46px; font-style: italic; font-weight: 400; fill: #1C1B19; }
+  </style>
+  <text x="50%" y="68" text-anchor="middle" class="brand-text">
+    METHOD <tspan class="ampersand">&amp;</tspan> MEASURE
+  </text>
+</svg>
