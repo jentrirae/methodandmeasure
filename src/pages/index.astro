@@ -1,70 +1,75 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import heroImage from "../images/mm-hero.jpg";
+import servicesImage from "../images/mm-services.jpg";
+import templatesImage from "../images/mm-templates.jpg";
+import aboutImage from "../images/mm-about.jpg";
 
-const features = [
+const services = [
 	{
 		index: "01 /",
-		title: "OPERATIONAL SUPPORT",
-		copy: "Reliable, detail-oriented support so you can stay focused on what matters most.",
-		link: "LEARN MORE →",
+		title: "Operations & Systems",
+		lead: "For businesses that have outgrown keeping everything in someone's head.",
+		detail:
+			"Workflows, SOPs, process improvement, operating rhythms, documentation, and systems that make the business less dependent on any one person.",
 	},
 	{
 		index: "02 /",
-		title: "OPERATIONS CONSULTING",
-		copy: "Systems, workflows, and processes designed to streamline your business and drive results.",
-		link: "LEARN MORE →",
+		title: "Projects & Implementation",
+		lead: "For operational projects that need someone to take ownership and move them from idea to finished.",
+		detail:
+			"System setup, process rollouts, organization projects, launches, operational cleanup, documentation, and special projects.",
 	},
 	{
 		index: "03 /",
-		title: "DIGITAL TEMPLATES",
-		copy: "Done-for-you templates, SOPs, and resources to save time and run with clarity.",
-		link: "BROWSE TEMPLATES →",
+		title: "Ongoing Operational Support",
+		lead: "For businesses that need consistent operational ownership without adding another full-time hire.",
+		detail:
+			"Coordination, recurring operational work, system maintenance, follow-through, documentation, and keeping priorities moving.",
+	},
+];
+
+const framework = [
+	{
+		index: "01",
+		title: "Measure",
+		copy: "Understand what is happening now. Find the bottlenecks, gaps, repeated friction, and places where too much depends on memory or manual follow-up.",
+	},
+	{
+		index: "02",
+		title: "Method",
+		copy: "Build the practical solution: workflows, systems, processes, documentation, tools, and structure designed around how the business actually operates.",
+	},
+	{
+		index: "03",
+		title: "Maintain",
+		copy: "Implement it, document it, support adoption, and create enough structure for the improvement to keep working after the initial project.",
 	},
 ];
 
 const templates = [
 	{
-		name: "Standard Operating Procedure Template",
-		price: "$49",
+		name: "Food Cost & Recipe Costing Workbook",
+		copy: "Price every dish with confidence and protect your margins.",
 	},
 	{
-		name: "Project Tracker Template",
-		price: "$29",
+		name: "Bar Pour Cost & Cocktail Costing Workbook",
+		copy: "Know your true pour cost on every cocktail on the menu.",
 	},
 	{
-		name: "Employee Handbook Template",
-		price: "$59",
-	},
-];
-
-const testimonials = [
-	{
-		quote:
-			"Working together completely changed how our back-of-house runs. We finally have systems the whole team actually follows.",
-		name: "Marguerite Landry",
-		tag: "RESTAURANT OWNER",
-	},
-	{
-		quote:
-			"Every process was documented, tested, and handed off without a single dropped ball. It felt like adding a full ops department overnight.",
-		name: "Theo Okafor",
-		tag: "HOSPITALITY GROUP",
-	},
-	{
-		quote:
-			"I went from firefighting every day to actually planning ahead. The templates alone paid for themselves in the first week.",
-		name: "Priya Sundaram",
-		tag: "SMALL BUSINESS OWNER",
+		name: "Restaurant Employee Handbook Template",
+		copy: "Policies and expectations, ready to customize for your team.",
 	},
 ];
 ---
 
 <Layout title="Method &amp; Measure — Systems That Simplify. Strategy That Scales.">
 	<main>
-		<!-- HERO -->
-		<section class="mx-auto max-w-7xl px-6 lg:px-8">
-			<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-16 lg:py-24">
-				<div class="lg:col-span-7">
+		<!-- SECTION 1: HERO -->
+		<section id="top" class="mx-auto max-w-7xl px-6 pt-14 pb-16 lg:px-8 lg:pt-20 lg:pb-20 scroll-mt-8">
+			<div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end lg:gap-12">
+				<div class="lg:col-span-8">
 					<h1
 						class="font-serif text-6xl md:text-7xl font-normal text-brand-black leading-none uppercase tracking-tight"
 					>
@@ -74,136 +79,324 @@ const testimonials = [
 						Systems that simplify. Strategy that scales.
 					</p>
 
-					<div class="mt-10 flex flex-wrap items-center gap-8">
+					<p class="mt-8 max-w-lg font-sans text-base leading-relaxed text-brand-muted">
+						Operational support for businesses that need better systems, stronger processes, and someone
+						who can actually put them in place.
+					</p>
+
+					<div class="mt-9 flex flex-wrap items-center gap-6">
 						<a
-							href="/contact"
+							href="#contact"
 							class="bg-brand-black text-brand-cream text-xs uppercase tracking-editorial px-6 py-3 transition-colors hover:bg-gray-800"
 						>
-							WORK WITH ME
+							Work With Method &amp; Measure
 						</a>
 						<a
-							href="/shop"
-							class="font-sans text-xs uppercase tracking-editorial border-b border-brand-black pb-0.5 text-brand-black"
+							href="#templates"
+							class="font-sans text-xs uppercase tracking-editorial text-brand-muted transition-colors hover:text-brand-black"
 						>
-							VIEW TEMPLATES
+							Explore Templates ↓
 						</a>
 					</div>
 				</div>
 
-				<div class="lg:col-span-5">
-					<div class="border border-brand-border bg-brand-card p-3">
-						<div
-							class="flex aspect-[4/5] w-full items-center justify-center bg-gradient-to-br from-brand-border/60 to-brand-card"
-						>
-							<span class="font-serif text-sm italic text-brand-muted">Editorial mockup</span>
-						</div>
+				<div class="lg:col-span-4">
+					<div class="aspect-[4/5] overflow-hidden border border-brand-border bg-brand-card/40">
+						<!-- Photography: editorial office/lobby interior — custom shelving, desk, and seating. No visible face. -->
+						<Image
+							src={heroImage}
+							alt="Editorial office interior with warm wood and architectural details"
+							width={1000}
+							class="h-full w-full object-cover object-[68%_center]"
+							loading="eager"
+						/>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- THREE-COLUMN FEATURE ROW -->
-		<section class="bg-brand-olive text-brand-cream py-16 border-y border-brand-olive">
-			<div
-				class="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-white/15 px-6 md:grid-cols-3 md:divide-y-0 md:divide-x lg:px-8"
-			>
-				{
-					features.map((feature) => (
-						<div class="flex flex-col gap-4 px-0 py-8 md:px-10 md:py-0 first:pt-0 md:first:pl-0">
-							<span class="font-serif text-sm text-brand-muted italic">{feature.index}</span>
-							<h3 class="font-sans text-sm tracking-editorial uppercase text-brand-cream font-medium">
-								{feature.title}
-							</h3>
-							<p class="font-sans text-sm leading-relaxed text-brand-cream/80">{feature.copy}</p>
-							<a
-								href="/services"
-								class="mt-2 font-sans text-xs tracking-editorial uppercase text-brand-cream transition-colors hover:text-brand-muted"
-							>
-								{feature.link}
-							</a>
-						</div>
-					))
-				}
-			</div>
-		</section>
-
-		<!-- FEATURED TEMPLATES -->
-		<section class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-			<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">FEATURED TEMPLATES</p>
-			<h2 class="mt-3 font-serif text-4xl md:text-5xl text-brand-black">Tools to simplify your business.</h2>
-
-			<div class="mt-12 grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-3">
-				{
-					templates.map((template) => (
-						<a href="/shop" class="group block">
-							<div class="overflow-hidden border border-brand-border bg-brand-card">
-								<div class="flex aspect-[4/5] w-full items-center justify-center bg-gradient-to-br from-brand-border/50 to-brand-card transition-transform duration-500 group-hover:scale-105">
-									<span class="font-serif text-sm italic text-brand-muted">Template preview</span>
-								</div>
-							</div>
-							<div class="mt-4 flex items-start justify-between gap-4">
-								<h3 class="font-serif text-lg text-brand-black">{template.name}</h3>
-								<span class="font-sans text-sm text-brand-black">{template.price}</span>
-							</div>
-						</a>
-					))
-				}
-			</div>
-		</section>
-
-		<!-- ABOUT / METHODOLOGY -->
-		<section class="bg-brand-cream py-20">
-			<div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
-				<div class="border border-brand-border bg-brand-card">
-					<div
-						class="flex aspect-[4/5] w-full items-center justify-center bg-gradient-to-br from-brand-border/50 to-brand-card"
-					>
-						<span class="font-serif text-sm italic text-brand-muted">Workspace photo</span>
-					</div>
-				</div>
-
-				<div>
-					<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">ABOUT</p>
-					<h2 class="mt-3 font-serif text-4xl md:text-5xl text-brand-black leading-tight">
-						Operations background. Strategic mindset.
-					</h2>
-					<p class="mt-6 font-sans text-sm leading-relaxed text-brand-muted">
-						I spent years running the back-of-house for growing hospitality brands before I started
-						helping other founders do the same. My approach pairs hands-on operational rigor with a
-						strategist's eye for what actually moves the business forward — so the systems we build
-						aren't just tidy, they're built to scale with you.
-					</p>
-					<a
-						href="/about"
-						class="mt-6 inline-block font-sans text-xs uppercase tracking-editorial border-b border-brand-black pb-0.5 text-brand-black"
-					>
-						MORE ABOUT ME →
-					</a>
-				</div>
-			</div>
-		</section>
-
-		<!-- TESTIMONIALS -->
-		<section class="bg-brand-card py-16 border-t border-brand-border">
+		<!-- SECTION 2: SERVICES -->
+		<section id="services" class="bg-brand-cream py-16 border-b border-brand-border scroll-mt-8">
 			<div class="mx-auto max-w-7xl px-6 lg:px-8">
-				<div class="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
+				<div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end lg:gap-12">
+					<div class="lg:col-span-7">
+						<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">SERVICES</p>
+						<h2 class="mt-3 max-w-xl font-serif text-4xl md:text-5xl text-brand-black leading-tight">
+							Support built around the problem, not the task list.
+						</h2>
+					</div>
+
+					<div class="lg:col-span-5">
+						<div class="aspect-[3/2] overflow-hidden border border-brand-border bg-brand-card/40">
+							<!-- Photography: hands annotating a process checklist beside an open notebook and laptop. No visible face. -->
+							<Image
+								src={servicesImage}
+								alt="Hands reviewing and annotating operational process documents"
+								width={1000}
+								class="h-full w-full object-cover"
+								loading="lazy"
+							/>
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-12 grid grid-cols-1 gap-10 border-t border-brand-border pt-10 md:grid-cols-3 md:gap-8">
 					{
-						testimonials.map((testimonial) => (
-							<div class="flex flex-col gap-6">
-								<p class="font-serif text-xl italic leading-relaxed text-brand-black">
-									&ldquo;{testimonial.quote}&rdquo;
-								</p>
-								<div>
-									<p class="font-sans text-sm font-medium text-brand-black">{testimonial.name}</p>
-									<p class="mt-1 font-sans text-xs tracking-editorial uppercase text-brand-muted">
-										{testimonial.tag}
-									</p>
-								</div>
+						services.map((service) => (
+							<div class="flex flex-col gap-3">
+								<span class="font-serif text-sm italic text-brand-muted">{service.index}</span>
+								<h3 class="font-sans text-sm tracking-editorial uppercase text-brand-black font-medium">
+									{service.title}
+								</h3>
+								<p class="font-sans text-sm leading-relaxed text-brand-black">{service.lead}</p>
+								<p class="font-sans text-sm leading-relaxed text-brand-muted">{service.detail}</p>
 							</div>
 						))
 					}
 				</div>
 			</div>
 		</section>
+
+		<!-- SECTION 3: HOW WE WORK -->
+		<section id="how-we-work" class="bg-brand-olive text-brand-cream py-16 scroll-mt-8">
+			<div class="mx-auto max-w-7xl px-6 lg:px-8">
+				<p class="font-sans text-xs tracking-editorial uppercase text-brand-cream/70">HOW WE WORK</p>
+				<h2 class="mt-3 max-w-2xl font-serif text-4xl md:text-5xl">Find the friction. Build the method. Make it stick.</h2>
+
+				<div class="mt-12 grid grid-cols-1 divide-y divide-white/15 md:grid-cols-3 md:divide-y-0 md:divide-x">
+					{
+						framework.map((step) => (
+							<div class="flex flex-col gap-4 px-0 py-8 md:px-10 md:py-0 first:pt-0 md:first:pl-0">
+								<span class="font-serif text-sm italic text-brand-muted">{step.index} /</span>
+								<h3 class="font-sans text-sm tracking-editorial uppercase text-brand-cream font-medium">
+									{step.title}
+								</h3>
+								<p class="font-sans text-sm leading-relaxed text-brand-cream/80">{step.copy}</p>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<!-- SECTION 4: TEMPLATES -->
+		<section id="templates" class="bg-brand-cream py-16 border-b border-brand-border scroll-mt-8">
+			<div class="mx-auto max-w-7xl px-6 lg:px-8">
+				<div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end lg:gap-12">
+					<div class="lg:col-span-8">
+						<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">TEMPLATES</p>
+						<h2 class="mt-3 max-w-xl font-serif text-4xl md:text-5xl text-brand-black leading-tight">
+							Systems you can put to work yourself.
+						</h2>
+						<p class="mt-4 max-w-lg font-sans text-sm leading-relaxed text-brand-muted">
+							Practical tools built from real operational experience for business owners who need structure
+							without a custom engagement.
+						</p>
+					</div>
+
+					<div class="lg:col-span-4">
+						<div class="aspect-[4/3] overflow-hidden border border-brand-border bg-brand-card/40">
+							<!-- Photography: operational planning clipboard, inventory sheets, and a calculator on a desk. No visible face. -->
+							<Image
+								src={templatesImage}
+								alt="Operational planning worksheets, calculator, and business notes on a desk"
+								width={800}
+								class="h-full w-full object-cover"
+								loading="lazy"
+							/>
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-10 grid grid-cols-1 gap-6 border-t border-brand-border pt-10 sm:grid-cols-3 sm:gap-8">
+					{
+						templates.map((template) => (
+							<div class="border border-brand-border p-6 transition-colors hover:border-brand-black">
+								<h3 class="font-serif text-lg text-brand-black">{template.name}</h3>
+								<p class="mt-2 font-sans text-sm leading-relaxed text-brand-muted">{template.copy}</p>
+							</div>
+						))
+					}
+				</div>
+
+				<div class="mt-8">
+					<a
+						href="/shop"
+						class="font-sans text-xs uppercase tracking-editorial text-brand-black border-b border-brand-black pb-0.5 transition-colors hover:text-brand-muted hover:border-brand-muted"
+					>
+						View All Templates →
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- SECTION 5: ABOUT METHOD & MEASURE -->
+		<section id="about" class="bg-brand-card py-16 border-b border-brand-border scroll-mt-8">
+			<div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
+				<div class="aspect-[4/5] overflow-hidden border border-brand-border">
+					<!-- Photography: designed hospitality lounge — bar counter, seating, and communal table. No visible face. -->
+					<Image
+						src={aboutImage}
+						alt="Designed hospitality interior representing hands-on operational experience"
+						width={1100}
+						class="h-full w-full object-cover object-[58%_center]"
+						loading="lazy"
+					/>
+				</div>
+
+				<div class="flex flex-col justify-center">
+					<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">ABOUT METHOD &amp; MEASURE</p>
+					<h2 class="mt-3 font-serif text-4xl md:text-5xl text-brand-black leading-tight">
+						Built from inside operations.
+					</h2>
+					<p class="mt-6 font-sans text-sm leading-relaxed text-brand-muted">
+						Method &amp; Measure grew out of years spent running operations for growing hospitality and
+						service businesses — building systems, managing teams, solving operational problems, creating
+						documentation, and bringing structure to businesses as they grew.
+					</p>
+					<p class="mt-4 font-sans text-sm leading-relaxed text-brand-muted">
+						The work is grounded in what is operationally realistic, not theoretical. The goal is not to
+						hand over a recommendation and disappear. It is to build something useful, implementable, and
+						sustainable.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- SECTION 7: CONTACT -->
+		<section id="contact" class="bg-brand-cream py-16 scroll-mt-8">
+			<div class="mx-auto max-w-3xl px-6 lg:px-8">
+				<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">CONTACT</p>
+				<h2 class="mt-3 font-serif text-4xl md:text-5xl text-brand-black leading-tight">Let's find the right fit.</h2>
+				<p class="mt-6 max-w-xl font-sans text-sm leading-relaxed text-brand-muted">
+					Tell me a little about the business and what isn't working. I'll take it from there.
+				</p>
+
+				<form id="contact-form" class="mt-10 flex flex-col gap-6">
+					<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+						<div class="flex flex-col gap-2">
+							<label class="font-sans text-xs tracking-editorial uppercase text-brand-black" for="name">Name</label>
+							<input
+								id="name"
+								name="name"
+								type="text"
+								required
+								class="w-full border border-brand-border bg-brand-card px-4 py-3 font-sans text-sm text-brand-black placeholder:text-brand-muted focus:border-brand-black focus:outline-none"
+								placeholder="Jane Doe"
+							/>
+						</div>
+						<div class="flex flex-col gap-2">
+							<label class="font-sans text-xs tracking-editorial uppercase text-brand-black" for="email">Email</label>
+							<input
+								id="email"
+								name="email"
+								type="email"
+								required
+								class="w-full border border-brand-border bg-brand-card px-4 py-3 font-sans text-sm text-brand-black placeholder:text-brand-muted focus:border-brand-black focus:outline-none"
+								placeholder="jane@example.com"
+							/>
+						</div>
+					</div>
+
+					<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+						<div class="flex flex-col gap-2">
+							<label class="font-sans text-xs tracking-editorial uppercase text-brand-black" for="business">
+								Business / Company
+							</label>
+							<input
+								id="business"
+								name="business"
+								type="text"
+								required
+								class="w-full border border-brand-border bg-brand-card px-4 py-3 font-sans text-sm text-brand-black placeholder:text-brand-muted focus:border-brand-black focus:outline-none"
+								placeholder="e.g. The Corner Bistro"
+							/>
+						</div>
+						<div class="flex flex-col gap-2">
+							<label class="font-sans text-xs tracking-editorial uppercase text-brand-black" for="industry">
+								Industry / Type of Business
+							</label>
+							<input
+								id="industry"
+								name="industry"
+								type="text"
+								required
+								class="w-full border border-brand-border bg-brand-card px-4 py-3 font-sans text-sm text-brand-black placeholder:text-brand-muted focus:border-brand-black focus:outline-none"
+								placeholder="e.g. Restaurant, retail, professional services"
+							/>
+						</div>
+					</div>
+
+					<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+						<div class="flex flex-col gap-2">
+							<label class="font-sans text-xs tracking-editorial uppercase text-brand-black" for="team-size">
+								Team Size
+							</label>
+							<input
+								id="team-size"
+								name="teamSize"
+								type="text"
+								class="w-full border border-brand-border bg-brand-card px-4 py-3 font-sans text-sm text-brand-black placeholder:text-brand-muted focus:border-brand-black focus:outline-none"
+								placeholder="e.g. 2–10"
+							/>
+						</div>
+						<div class="flex flex-col gap-2">
+							<label class="font-sans text-xs tracking-editorial uppercase text-brand-black" for="start-date">
+								Ideal Start Date
+							</label>
+							<input
+								id="start-date"
+								name="startDate"
+								type="text"
+								class="w-full border border-brand-border bg-brand-card px-4 py-3 font-sans text-sm text-brand-black placeholder:text-brand-muted focus:border-brand-black focus:outline-none"
+								placeholder="e.g. ASAP, within 30 days"
+							/>
+						</div>
+					</div>
+
+					<div class="flex flex-col gap-2">
+						<label class="font-sans text-xs tracking-editorial uppercase text-brand-black" for="message">
+							Tell me what's going on.
+						</label>
+						<textarea
+							id="message"
+							name="message"
+							required
+							rows="5"
+							class="w-full border border-brand-border bg-brand-card px-4 py-3 font-sans text-sm text-brand-black placeholder:text-brand-muted focus:border-brand-black focus:outline-none"
+							placeholder="What's not working, what needs to change, or what have you been meaning to get off your plate?"
+						></textarea>
+					</div>
+
+					<div class="mt-2">
+						<button
+							type="submit"
+							class="bg-brand-black text-brand-cream text-xs uppercase tracking-editorial px-6 py-3 transition-colors hover:bg-gray-800"
+						>
+							Submit Inquiry
+						</button>
+					</div>
+
+					<p id="contact-success" class="hidden border border-brand-border bg-brand-card px-6 py-5 font-sans text-sm text-brand-black">
+						Thanks — your inquiry has been received. We'll follow up by email within one to two business days.
+					</p>
+				</form>
+			</div>
+		</section>
 	</main>
+
+	<script>
+		const form = document.getElementById("contact-form") as HTMLFormElement;
+		const success = document.getElementById("contact-success") as HTMLParagraphElement;
+
+		form.addEventListener("submit", (event) => {
+			event.preventDefault();
+			if (!form.checkValidity()) {
+				form.reportValidity();
+				return;
+			}
+			form.reset();
+			success.classList.remove("hidden");
+		});
+	</script>
 </Layout>
