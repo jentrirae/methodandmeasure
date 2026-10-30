@@ -1,32 +1,30 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import heroImage from "../images/mm-hero.jpg";
 import servicesImage from "../images/mm-services.jpg";
-import templatesImage from "../images/mm-templates.jpg";
-import aboutImage from "../images/mm-about.jpg";
+import deskImage from "../images/mm-templates.jpg";
 
 const services = [
 	{
 		index: "01 /",
-		title: "Operations & Systems",
-		lead: "For businesses that have outgrown keeping everything in someone's head.",
+		title: "Ongoing Operations Support",
+		lead: "Steady operational ownership, without adding another full-time hire.",
 		detail:
-			"Workflows, SOPs, process improvement, operating rhythms, documentation, and systems that make the business less dependent on any one person.",
+			"Coordination, recurring operational work, system maintenance, follow-through, documentation, and keeping priorities moving week to week.",
 	},
 	{
 		index: "02 /",
-		title: "Projects & Implementation",
-		lead: "For operational projects that need someone to take ownership and move them from idea to finished.",
+		title: "Bookkeeping & Financial Tracking",
+		lead: "Clear, current books you can actually use to make decisions.",
 		detail:
-			"System setup, process rollouts, organization projects, launches, operational cleanup, documentation, and special projects.",
+			"Bookkeeping, reconciliations, and financial tracking from a QuickBooks Certified ProAdvisor — accurate and ready when you need them.",
 	},
 	{
 		index: "03 /",
-		title: "Ongoing Operational Support",
-		lead: "For businesses that need consistent operational ownership without adding another full-time hire.",
+		title: "Scoped Projects",
+		lead: "For one-time work that needs an owner from start to finish.",
 		detail:
-			"Coordination, recurring operational work, system maintenance, follow-through, documentation, and keeping priorities moving.",
+			"Audits, systems setup, SOPs, and other defined projects — scoped up front and quoted after scoping, built to fit how the business actually runs.",
 	},
 ];
 
@@ -34,7 +32,7 @@ const framework = [
 	{
 		index: "01",
 		title: "Measure",
-		copy: "Understand what is happening now. Find the bottlenecks, gaps, repeated friction, and places where too much depends on memory or manual follow-up.",
+		copy: "Understand what is happening now. Find the bottlenecks, gaps, and places where too much depends on memory or manual follow-up.",
 	},
 	{
 		index: "02",
@@ -47,42 +45,28 @@ const framework = [
 		copy: "Implement it, document it, support adoption, and create enough structure for the improvement to keep working after the initial project.",
 	},
 ];
-
-const templates = [
-	{
-		name: "Food Cost & Recipe Costing Workbook",
-		copy: "Price every dish with confidence and protect your margins.",
-	},
-	{
-		name: "Bar Pour Cost & Cocktail Costing Workbook",
-		copy: "Know your true pour cost on every cocktail on the menu.",
-	},
-	{
-		name: "Restaurant Employee Handbook Template",
-		copy: "Policies and expectations, ready to customize for your team.",
-	},
-];
 ---
 
 <Layout title="Method &amp; Measure — Systems That Simplify. Strategy That Scales.">
 	<main>
 		<!-- SECTION 1: HERO -->
-		<section id="top" class="mx-auto max-w-7xl px-6 pt-14 pb-16 lg:px-8 lg:pt-20 lg:pb-20 scroll-mt-8">
-			<div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end lg:gap-12">
-				<div class="lg:col-span-8">
-					<h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal uppercase tracking-[0.15em] sm:tracking-[0.2em] lg:tracking-[0.25em] text-brand-black leading-tight">
-						Method &amp; Measure
+		<section id="top" class="mx-auto max-w-7xl px-6 pt-12 pb-10 lg:px-8 lg:pt-14 lg:pb-12 scroll-mt-8">
+			<div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
+				<div class="lg:col-span-7">
+					<p class="font-sans text-xs tracking-editorial uppercase text-brand-muted">
+						Operations &amp; Bookkeeping for Small Businesses
+					</p>
+					<h1 class="mt-3 font-serif text-4xl sm:text-5xl lg:text-6xl text-brand-black leading-tight">
+						The work behind a well-run business, handled.
 					</h1>
-					<p class="font-sans text-sm tracking-widest uppercase text-brand-black mt-10 font-medium">
-						Systems that simplify. Strategy that scales.
+
+					<p class="mt-6 max-w-lg font-sans text-base leading-relaxed text-brand-muted">
+						Method &amp; Measure provides ongoing operations support, bookkeeping and financial
+						tracking, and scoped projects — audits, systems setup, SOPs — for small businesses that
+						need things running smoothly without hiring another full-time person.
 					</p>
 
-					<p class="mt-8 max-w-lg font-sans text-base leading-relaxed text-brand-muted">
-						Operational support for businesses that need better systems, stronger processes, and someone
-						who can actually put them in place.
-					</p>
-
-					<div class="mt-9 flex flex-wrap items-center gap-6">
+					<div class="mt-8 flex flex-wrap items-center gap-6">
 						<a
 							href="#contact"
 							class="bg-brand-black text-brand-cream text-xs uppercase tracking-editorial px-6 py-3 transition-colors hover:bg-gray-800"
@@ -90,22 +74,22 @@ const templates = [
 							Work With Method &amp; Measure
 						</a>
 						<a
-							href="#templates"
+							href="#services"
 							class="font-sans text-xs uppercase tracking-editorial text-brand-muted transition-colors hover:text-brand-black"
 						>
-							Explore Templates ↓
+							See What We Do ↓
 						</a>
 					</div>
 				</div>
 
-				<div class="lg:col-span-4">
+				<div class="lg:col-span-5">
 					<div class="aspect-[4/5] overflow-hidden border border-brand-border bg-brand-card/40">
-						<!-- Photography: editorial office/lobby interior — custom shelving, desk, and seating. No visible face. -->
+						<!-- Photography: hands annotating a process checklist beside an open notebook and laptop. No visible face. -->
 						<Image
-							src={heroImage}
-							alt="Editorial office interior with warm wood and architectural details"
-							width={1000}
-							class="h-full w-full object-cover object-[68%_center]"
+							src={servicesImage}
+							alt="Hands reviewing and annotating an operational process checklist"
+							width={900}
+							class="h-full w-full object-cover object-[60%_center]"
 							loading="eager"
 						/>
 					</div>
@@ -114,31 +98,18 @@ const templates = [
 		</section>
 
 		<!-- SECTION 2: SERVICES -->
-		<section id="services" class="bg-brand-cream py-16 border-b border-brand-border scroll-mt-8">
+		<section id="services" class="bg-brand-cream py-12 lg:py-14 border-b border-brand-border scroll-mt-8">
 			<div class="mx-auto max-w-7xl px-6 lg:px-8">
-				<div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end lg:gap-12">
-					<div class="lg:col-span-7">
-						<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">SERVICES</p>
-						<h2 class="mt-3 max-w-xl font-serif text-4xl md:text-5xl text-brand-black leading-tight">
-							Support built around the problem, not the task list.
-						</h2>
-					</div>
+				<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">SERVICES</p>
+				<h2 class="mt-3 max-w-2xl font-serif text-4xl md:text-5xl text-brand-black leading-tight">
+					Ongoing support and bookkeeping — plus projects when you need them.
+				</h2>
+				<p class="mt-4 max-w-2xl font-sans text-sm leading-relaxed text-brand-muted">
+					Most clients start with steady operational support or bookkeeping. Scoped projects pick
+					up the one-time work — audits, systems setup, SOPs — that needs a clear start and finish.
+				</p>
 
-					<div class="lg:col-span-5">
-						<div class="aspect-[3/2] overflow-hidden border border-brand-border bg-brand-card/40">
-							<!-- Photography: hands annotating a process checklist beside an open notebook and laptop. No visible face. -->
-							<Image
-								src={servicesImage}
-								alt="Hands reviewing and annotating operational process documents"
-								width={1000}
-								class="h-full w-full object-cover"
-								loading="lazy"
-							/>
-						</div>
-					</div>
-				</div>
-
-				<div class="mt-12 grid grid-cols-1 gap-10 border-t border-brand-border pt-10 md:grid-cols-3 md:gap-8">
+				<div class="mt-10 grid grid-cols-1 gap-10 border-t border-brand-border pt-10 md:grid-cols-3 md:gap-8">
 					{
 						services.map((service) => (
 							<div class="flex flex-col gap-3">
@@ -152,16 +123,30 @@ const templates = [
 						))
 					}
 				</div>
+
+				<div class="mt-10 flex items-center justify-between gap-6 border-t border-brand-border pt-8">
+					<p class="font-sans text-sm leading-relaxed text-brand-muted">
+						Retainers and project rates, laid out plainly.
+					</p>
+					<a
+						href="/pricing"
+						class="shrink-0 font-sans text-xs uppercase tracking-editorial text-brand-black border-b border-brand-black pb-0.5 transition-colors hover:text-brand-muted hover:border-brand-muted"
+					>
+						View Pricing →
+					</a>
+				</div>
 			</div>
 		</section>
 
 		<!-- SECTION 3: HOW WE WORK -->
-		<section id="how-we-work" class="bg-brand-olive text-brand-cream py-16 scroll-mt-8">
+		<section id="how-we-work" class="bg-brand-olive text-brand-cream py-14 scroll-mt-8">
 			<div class="mx-auto max-w-7xl px-6 lg:px-8">
 				<p class="font-sans text-xs tracking-editorial uppercase text-brand-cream/70">HOW WE WORK</p>
-				<h2 class="mt-3 max-w-2xl font-serif text-4xl md:text-5xl">Find the friction. Build the method. Make it stick.</h2>
+				<h2 class="mt-3 max-w-2xl font-serif text-4xl md:text-5xl">
+					Understand the work. Build the right systems. Keep the business moving.
+				</h2>
 
-				<div class="mt-12 grid grid-cols-1 divide-y divide-white/15 md:grid-cols-3 md:divide-y-0 md:divide-x">
+				<div class="mt-10 grid grid-cols-1 divide-y divide-white/15 md:grid-cols-3 md:divide-y-0 md:divide-x">
 					{
 						framework.map((step) => (
 							<div class="flex flex-col gap-4 px-0 py-8 md:px-10 md:py-0 first:pt-0 md:first:pl-0">
@@ -177,97 +162,54 @@ const templates = [
 			</div>
 		</section>
 
-		<!-- SECTION 4: TEMPLATES -->
-		<section id="templates" class="bg-brand-cream py-16 border-b border-brand-border scroll-mt-8">
-			<div class="mx-auto max-w-7xl px-6 lg:px-8">
-				<div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end lg:gap-12">
-					<div class="lg:col-span-8">
-						<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">TEMPLATES</p>
-						<h2 class="mt-3 max-w-xl font-serif text-4xl md:text-5xl text-brand-black leading-tight">
-							Systems you can put to work yourself.
-						</h2>
-						<p class="mt-4 max-w-lg font-sans text-sm leading-relaxed text-brand-muted">
-							Practical tools built from real operational experience for business owners who need structure
-							without a custom engagement.
-						</p>
-					</div>
-
-					<div class="lg:col-span-4">
-						<div class="aspect-[4/3] overflow-hidden border border-brand-border bg-brand-card/40">
-							<!-- Photography: operational planning clipboard, inventory sheets, and a calculator on a desk. No visible face. -->
-							<Image
-								src={templatesImage}
-								alt="Operational planning worksheets, calculator, and business notes on a desk"
-								width={800}
-								class="h-full w-full object-cover"
-								loading="lazy"
-							/>
-						</div>
+		<!-- SECTION 4: ABOUT METHOD & MEASURE -->
+		<section id="about" class="bg-brand-cream py-12 border-b border-brand-border scroll-mt-8">
+			<div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-5 lg:gap-16 lg:px-8">
+				<div class="lg:col-span-2">
+					<div class="aspect-[4/5] overflow-hidden border border-brand-border">
+						<!-- Photography: desk with planning worksheets, inventory sheets, and a calculator. No visible face. -->
+						<Image
+							src={deskImage}
+							alt="Desk with planning worksheets, calculator, and notes representing hands-on operational and bookkeeping work"
+							width={700}
+							class="h-full w-full object-cover"
+							loading="lazy"
+						/>
 					</div>
 				</div>
 
-				<div class="mt-10 grid grid-cols-1 gap-6 border-t border-brand-border pt-10 sm:grid-cols-3 sm:gap-8">
-					{
-						templates.map((template) => (
-							<div class="border border-brand-border p-6 transition-colors hover:border-brand-black">
-								<h3 class="font-serif text-lg text-brand-black">{template.name}</h3>
-								<p class="mt-2 font-sans text-sm leading-relaxed text-brand-muted">{template.copy}</p>
-							</div>
-						))
-					}
-				</div>
-
-				<div class="mt-8">
-					<a
-						href="/shop"
-						class="font-sans text-xs uppercase tracking-editorial text-brand-black border-b border-brand-black pb-0.5 transition-colors hover:text-brand-muted hover:border-brand-muted"
-					>
-						View All Templates →
-					</a>
-				</div>
-			</div>
-		</section>
-
-		<!-- SECTION 5: ABOUT METHOD & MEASURE -->
-		<section id="about" class="bg-brand-card py-16 border-b border-brand-border scroll-mt-8">
-			<div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
-				<div class="aspect-[4/5] overflow-hidden border border-brand-border">
-					<!-- Photography: designed hospitality lounge — bar counter, seating, and communal table. No visible face. -->
-					<Image
-						src={aboutImage}
-						alt="Designed hospitality interior representing hands-on operational experience"
-						width={1100}
-						class="h-full w-full object-cover object-[58%_center]"
-						loading="lazy"
-					/>
-				</div>
-
-				<div class="flex flex-col justify-center">
+				<div class="flex flex-col justify-center lg:col-span-3">
 					<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">ABOUT METHOD &amp; MEASURE</p>
 					<h2 class="mt-3 font-serif text-4xl md:text-5xl text-brand-black leading-tight">
 						Built from inside operations.
 					</h2>
 					<p class="mt-6 font-sans text-sm leading-relaxed text-brand-muted">
-						Method &amp; Measure grew out of years spent running operations for growing hospitality and
-						service businesses — building systems, managing teams, solving operational problems, creating
-						documentation, and bringing structure to businesses as they grew.
+						Method &amp; Measure grew out of years spent running operations for growing small
+						businesses — building systems, managing teams, keeping the books straight, solving
+						operational problems, and bringing structure to businesses as they grew.
 					</p>
 					<p class="mt-4 font-sans text-sm leading-relaxed text-brand-muted">
-						The work is grounded in what is operationally realistic, not theoretical. The goal is not to
-						hand over a recommendation and disappear. It is to build something useful, implementable, and
-						sustainable.
+						Jentri is a QuickBooks Certified ProAdvisor. The work is grounded in what is operationally
+						realistic, not theoretical. The goal is not to hand over a recommendation and disappear —
+						it is to build something useful, implementable, and sustainable.
+					</p>
+					<p class="mt-4 font-sans text-sm leading-relaxed text-brand-muted">
+						Most engagements start with a conversation about what isn't working, then settle into
+						whichever mix of ongoing support, bookkeeping, or project work fits the business —
+						adjusting as priorities change.
 					</p>
 				</div>
 			</div>
 		</section>
 
-		<!-- SECTION 7: CONTACT -->
-		<section id="contact" class="bg-brand-cream py-16 scroll-mt-8">
+		<!-- SECTION 5: CONTACT -->
+		<section id="contact" class="bg-brand-cream pt-12 pb-14 scroll-mt-8">
 			<div class="mx-auto max-w-3xl px-6 lg:px-8">
 				<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">CONTACT</p>
 				<h2 class="mt-3 font-serif text-4xl md:text-5xl text-brand-black leading-tight">Let's find the right fit.</h2>
 				<p class="mt-6 max-w-xl font-sans text-sm leading-relaxed text-brand-muted">
-					Tell me a little about the business and what isn't working. I'll take it from there.
+					Tell me a bit about the business and what you need — ongoing support, bookkeeping, or a
+					specific project. I'll follow up from there.
 				</p>
 
 				<form id="contact-form" class="mt-10 flex flex-col gap-6">
@@ -299,7 +241,7 @@ const templates = [
 					<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
 						<div class="flex flex-col gap-2">
 							<label class="font-sans text-xs tracking-editorial uppercase text-brand-black" for="business">
-								Business / Company
+								Business Name
 							</label>
 							<input
 								id="business"
@@ -307,54 +249,26 @@ const templates = [
 								type="text"
 								required
 								class="w-full border border-brand-border bg-brand-card px-4 py-3 font-sans text-sm text-brand-black placeholder:text-brand-muted focus:border-brand-black focus:outline-none"
-								placeholder="e.g. The Corner Bistro"
+								placeholder="e.g. Acme Co."
 							/>
 						</div>
 						<div class="flex flex-col gap-2">
-							<label class="font-sans text-xs tracking-editorial uppercase text-brand-black" for="industry">
-								Industry / Type of Business
+							<label class="font-sans text-xs tracking-editorial uppercase text-brand-black" for="phone">
+								Phone <span class="text-brand-muted">(optional)</span>
 							</label>
 							<input
-								id="industry"
-								name="industry"
-								type="text"
-								required
+								id="phone"
+								name="phone"
+								type="tel"
 								class="w-full border border-brand-border bg-brand-card px-4 py-3 font-sans text-sm text-brand-black placeholder:text-brand-muted focus:border-brand-black focus:outline-none"
-								placeholder="e.g. Restaurant, retail, professional services"
-							/>
-						</div>
-					</div>
-
-					<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-						<div class="flex flex-col gap-2">
-							<label class="font-sans text-xs tracking-editorial uppercase text-brand-black" for="team-size">
-								Team Size
-							</label>
-							<input
-								id="team-size"
-								name="teamSize"
-								type="text"
-								class="w-full border border-brand-border bg-brand-card px-4 py-3 font-sans text-sm text-brand-black placeholder:text-brand-muted focus:border-brand-black focus:outline-none"
-								placeholder="e.g. 2–10"
-							/>
-						</div>
-						<div class="flex flex-col gap-2">
-							<label class="font-sans text-xs tracking-editorial uppercase text-brand-black" for="start-date">
-								Ideal Start Date
-							</label>
-							<input
-								id="start-date"
-								name="startDate"
-								type="text"
-								class="w-full border border-brand-border bg-brand-card px-4 py-3 font-sans text-sm text-brand-black placeholder:text-brand-muted focus:border-brand-black focus:outline-none"
-								placeholder="e.g. ASAP, within 30 days"
+								placeholder="e.g. 555-123-4567"
 							/>
 						</div>
 					</div>
 
 					<div class="flex flex-col gap-2">
 						<label class="font-sans text-xs tracking-editorial uppercase text-brand-black" for="message">
-							Tell me what's going on.
+							What's going on?
 						</label>
 						<textarea
 							id="message"

@@ -1,0 +1,96 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const packages = [
+	{
+		hours: "10 Hours / Month",
+		price: "$350",
+		copy: "For businesses that need light, steady support.",
+	},
+	{
+		hours: "20 Hours / Month",
+		price: "$660",
+		copy: "For businesses with regular, ongoing operational or bookkeeping needs.",
+	},
+	{
+		hours: "30 Hours / Month",
+		price: "$960",
+		copy: "For businesses that need consistent, hands-on support.",
+	},
+];
+
+const policies = [
+	"Retainers are billed in advance on the 1st of each month.",
+	"Unused hours roll over for one month.",
+	"Fixed-price projects require a 50% deposit to begin.",
+	"Book implementation within 30 days of an audit and the audit fee is credited toward the project.",
+];
+---
+
+<Layout title="Pricing — Method &amp; Measure" description="Rates for ongoing operations support, bookkeeping, and scoped projects.">
+	<main>
+		<section class="mx-auto max-w-7xl px-6 pt-12 pb-10 lg:px-8 lg:pt-16 lg:pb-12">
+			<p class="text-brand-muted font-sans text-xs tracking-editorial uppercase">PRICING</p>
+			<h1 class="mt-3 max-w-xl font-serif text-4xl md:text-5xl text-brand-black leading-tight">
+				Clear rates, set upfront.
+			</h1>
+			<p class="mt-4 max-w-lg font-sans text-sm leading-relaxed text-brand-muted">
+				Ongoing support and bookkeeping are billed as a monthly retainer. Projects are scoped first,
+				then quoted.
+			</p>
+		</section>
+
+		<section class="bg-brand-card py-12 border-y border-brand-border">
+			<div class="mx-auto max-w-7xl px-6 lg:px-8">
+				<div class="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8">
+					{
+						packages.map((pkg) => (
+							<div class="flex flex-col gap-2 border border-brand-border bg-brand-cream p-6">
+								<h2 class="font-sans text-sm tracking-editorial uppercase text-brand-black font-medium">
+									{pkg.hours}
+								</h2>
+								<p class="font-serif text-3xl text-brand-black">{pkg.price}</p>
+								<p class="font-sans text-sm leading-relaxed text-brand-muted">{pkg.copy}</p>
+							</div>
+						))
+					}
+				</div>
+				<p class="mt-4 font-sans text-sm leading-relaxed text-brand-muted">
+					Additional hours are billed at $35/hour.
+				</p>
+
+				<div class="mt-10 grid grid-cols-1 gap-10 border-t border-brand-border pt-10 md:grid-cols-2">
+					<div>
+						<h2 class="font-sans text-sm tracking-editorial uppercase text-brand-black font-medium">
+							Scoped Projects
+						</h2>
+						<p class="mt-3 font-sans text-sm leading-relaxed text-brand-muted">
+							Audits, systems setup, SOPs, and other one-time projects are quoted after scoping —
+							based on what the work actually requires.
+						</p>
+					</div>
+
+					<div>
+						<h2 class="font-sans text-sm tracking-editorial uppercase text-brand-black font-medium">
+							Billing Policies
+						</h2>
+						<ul class="mt-3 flex flex-col gap-2 font-sans text-sm leading-relaxed text-brand-muted list-disc pl-5">
+							{policies.map((policy) => <li>{policy}</li>)}
+						</ul>
+					</div>
+				</div>
+
+				<p class="mt-10 font-sans text-xs leading-relaxed text-brand-muted border-t border-brand-border pt-6">
+					Legal and tax decisions are made with your CPA or attorney — Method &amp; Measure builds the
+					systems around them.
+				</p>
+			</div>
+		</section>
+
+		<section class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+			<p class="font-sans text-sm leading-relaxed text-brand-muted">
+				Not sure what you need yet? <a href="/#contact" class="text-brand-black border-b border-brand-black pb-0.5 transition-colors hover:text-brand-muted hover:border-brand-muted">Get in touch</a> and we'll figure out the right fit together.
+			</p>
+		</section>
+	</main>
+</Layout>
