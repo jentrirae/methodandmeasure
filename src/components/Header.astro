@@ -1,5 +1,11 @@
 ---
 import { navLinks } from "../lib/nav";
+
+interface Props {
+	showInquiry?: boolean;
+}
+
+const { showInquiry = false } = Astro.props;
 ---
 
 <header class="border-b border-brand-border">
@@ -8,7 +14,7 @@ import { navLinks } from "../lib/nav";
 			<img
 				src="/logo-primary.svg"
 				alt="Method &amp; Measure"
-				class="h-9 w-auto sm:h-10 lg:h-12"
+				class="h-auto w-[230px] sm:w-[290px] lg:w-[360px]"
 			/>
 		</a>
 
@@ -22,6 +28,16 @@ import { navLinks } from "../lib/nav";
 						{item.label}
 					</a>
 				))
+			}
+			{
+				showInquiry && (
+					<a
+						href="/#contact"
+						class="bg-brand-black text-brand-cream text-xs uppercase tracking-editorial px-5 py-2.5 transition-colors hover:bg-brand-olive"
+					>
+						Send an inquiry
+					</a>
+				)
 			}
 		</nav>
 
@@ -52,6 +68,16 @@ import { navLinks } from "../lib/nav";
 					{item.label}
 				</a>
 			))
+		}
+		{
+			showInquiry && (
+				<a
+					href="/#contact"
+					class="mobile-nav-link block py-3 font-sans text-xs tracking-editorial uppercase text-brand-black"
+				>
+					Send an inquiry
+				</a>
+			)
 		}
 	</nav>
 </header>

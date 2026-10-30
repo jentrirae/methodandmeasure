@@ -6,29 +6,36 @@ import { navLinks } from "../lib/nav";
 interface Props {
 	title: string;
 	description?: string;
+	showHeaderInquiry?: boolean;
 }
 
-const { title, description = "Systems that simplify. Strategy that scales." } = Astro.props;
+const {
+	title,
+	description = "Systems that simplify. Strategy that scales.",
+	showHeaderInquiry = false,
+} = Astro.props;
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/png" href="/favicon.png" />
-		<link rel="apple-touch-icon" href="/favicon.png" />
+		<link rel="icon" href="/favicon.ico" sizes="48x48" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
 			rel="stylesheet"
 		/>
 		<title>{title}</title>
 	</head>
 	<body class="bg-brand-cream font-sans antialiased">
-		<Header />
+		<Header showInquiry={showHeaderInquiry} />
 
 		<slot />
 
@@ -37,14 +44,12 @@ const { title, description = "Systems that simplify. Strategy that scales." } = 
 			<div class="mx-auto max-w-7xl px-6 lg:px-8">
 				<div class="flex flex-col gap-10 md:flex-row md:flex-wrap md:items-start md:justify-between lg:flex-nowrap">
 					<div class="flex flex-col items-center gap-3">
-						<div class="bg-brand-cream px-6 py-4">
-							<img
-								src="/logo-stacked.svg"
-								alt="Method &amp; Measure"
-								class="h-14 w-auto sm:h-16"
-								loading="lazy"
-							/>
-						</div>
+						<img
+							src="/logo-stacked-ivory.svg"
+							alt="Method &amp; Measure"
+							class="mb-3 h-16 w-auto sm:h-20"
+							loading="lazy"
+						/>
 						<a
 							href="mailto:hello@methodandmeasure.com"
 							class="font-sans text-sm text-brand-cream/70 transition-colors hover:text-brand-cream"

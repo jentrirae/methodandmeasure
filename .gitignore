@@ -3,6 +3,9 @@ dist/
 # generated types
 .astro/
 
+# Claude Code local settings
+.claude/
+
 # dependencies
 node_modules/
 

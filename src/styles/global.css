@@ -9,7 +9,8 @@
 	--color-brand-muted: #6e6a63;
 
 	--font-serif: "Cormorant Garamond", "Times New Roman", serif;
-	--font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+	--font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+	--font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
 
 	--tracking-editorial: 0.14em;
 }
