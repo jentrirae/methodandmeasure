@@ -428,6 +428,11 @@ const howToStart = [
 						></textarea>
 					</div>
 
+					<div class="hidden" aria-hidden="true">
+						<label for="website">Leave this field empty</label>
+						<input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+					</div>
+
 					<div class="mt-2">
 						<button
 							type="submit"
@@ -436,6 +441,11 @@ const howToStart = [
 							Send an Inquiry
 						</button>
 					</div>
+
+					<p id="contact-error" class="hidden border border-brand-border bg-brand-card px-6 py-5 font-sans text-sm text-brand-black">
+						Something went wrong sending your inquiry. Please email
+						<a href="mailto:hello@methodandmeasure.com" class="underline">hello@methodandmeasure.com</a> instead.
+					</p>
 
 					<p id="contact-success" class="hidden border border-brand-border bg-brand-card px-6 py-5 font-sans text-sm text-brand-black">
 						Thanks — I've received your inquiry and will follow up by email within one to two business days.
@@ -446,17 +456,32 @@ const howToStart = [
 	</main>
 
 	<script>
+		import { submitForm } from "../lib/forms";
+
 		const form = document.getElementById("contact-form") as HTMLFormElement;
 		const success = document.getElementById("contact-success") as HTMLParagraphElement;
+		const error = document.getElementById("contact-error") as HTMLParagraphElement;
+		const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
 
-		form.addEventListener("submit", (event) => {
+		form.addEventListener("submit", async (event) => {
 			event.preventDefault();
 			if (!form.checkValidity()) {
 				form.reportValidity();
 				return;
 			}
-			form.reset();
-			success.classList.remove("hidden");
+			button.disabled = true;
+			button.textContent = "Sending…";
+			error.classList.add("hidden");
+			try {
+				await submitForm(form, { form: "inquiry" });
+				form.reset();
+				success.classList.remove("hidden");
+			} catch {
+				error.classList.remove("hidden");
+			} finally {
+				button.disabled = false;
+				button.textContent = "Send an Inquiry";
+			}
 		});
 	</script>
 </Layout>
