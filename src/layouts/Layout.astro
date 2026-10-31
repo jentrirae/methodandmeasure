@@ -70,9 +70,12 @@ const {
 						<p class="mt-2 font-sans text-sm text-brand-cream/70">
 							Practical systems, tools, and ideas for running a better business.
 						</p>
-						<form class="mt-4 flex">
+						<form id="subscribe-form" class="mt-4 flex">
+							<input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
 							<input
 								type="email"
+								name="email"
+								aria-label="Email address"
 								required
 								placeholder="Your email address"
 								class="w-full border border-white/20 bg-transparent px-3 py-2.5 font-sans text-sm text-brand-cream placeholder:text-brand-cream/50 focus:border-brand-cream focus:outline-none"
@@ -84,6 +87,7 @@ const {
 								Subscribe
 							</button>
 						</form>
+						<p id="subscribe-status" class="mt-2 hidden font-sans text-sm text-brand-cream/70" role="status"></p>
 					</div>
 
 					<div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-16">
@@ -146,5 +150,32 @@ const {
 				</div>
 			</div>
 		</footer>
+
+		<script>
+			import { submitForm } from "../lib/forms";
+
+			const subscribeForm = document.getElementById("subscribe-form") as HTMLFormElement | null;
+			const subscribeStatus = document.getElementById("subscribe-status") as HTMLParagraphElement | null;
+
+			subscribeForm?.addEventListener("submit", async (event) => {
+				event.preventDefault();
+				if (!subscribeForm.checkValidity()) {
+					subscribeForm.reportValidity();
+					return;
+				}
+				const button = subscribeForm.querySelector<HTMLButtonElement>('button[type="submit"]');
+				if (button) button.disabled = true;
+				try {
+					await submitForm(subscribeForm, { form: "subscribe" });
+					subscribeForm.reset();
+					if (subscribeStatus) subscribeStatus.textContent = "Thanks — you're on the list.";
+				} catch {
+					if (subscribeStatus) subscribeStatus.textContent = "Something went wrong. Please try again.";
+				} finally {
+					subscribeStatus?.classList.remove("hidden");
+					if (button) button.disabled = false;
+				}
+			});
+		</script>
 	</body>
 </html>
